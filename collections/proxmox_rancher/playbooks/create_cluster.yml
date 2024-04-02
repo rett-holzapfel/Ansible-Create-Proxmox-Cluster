@@ -1,6 +1,6 @@
 ---
 - name: Create the k3s template
-  ansible.builtin.import_playbook: proxmox_rancher.playbooks.create_template
+  ansible.builtin.import_playbook: proxmox_rancher.create_template
 
 #- name: Create the k3s nodes
 #  ansible.builtin.import_playbook: sysengquick.k3s.create_nodes
