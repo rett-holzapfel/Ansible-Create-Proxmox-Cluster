@@ -1,27 +1,38 @@
 all:
   children:
-    k3s:
+    rancher:
       children:
-        servers:
+        masters:
           hosts:
             s1.k3s.local.technoplaza.net:
-              ansible_host: 192.168.1.51
+              ansible_host: 192.168.1.101
             s2.k3s.local.technoplaza.net:
-              ansible_host: 192.168.1.52
+              ansible_host: 192.168.1.102
             s3.k3s.local.technoplaza.net:
-              ansible_host: 192.168.1.53
+              ansible_host: 192.168.1.103
         workers:
           hosts:
             w1.k3s.local.technoplaza.net:
-              ansible_host: 192.168.1.54
+              ansible_host: 192.168.1.111
             w2.k3s.local.technoplaza.net:
-              ansible_host: 192.168.1.55
+              ansible_host: 192.168.1.112
       vars:
-        ansible_ssh_user: pve
+        ansible_ssh_user: rettholzapfel
     proxmox:
       hosts:
-        pve.local.technoplaza.net: {}
+        luffy:
+          ansible_host: 192.168.3.2
+          vmid: 7000
+          storage: FAST-LUFFY
+        zoro:
+          ansible_host: 192.168.3.3
+          vmid: 8000
+          storage: FAST-ZORO
+        sanji:
+          ansible_host: 192.168.3.4
+          vmid: 9000
+          storage: FAST-SANJI
       vars:
-        ansible_ssh_user: ansible
+        ansible_ssh_user: root
   vars:
     ansible_ssh_common_args: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null

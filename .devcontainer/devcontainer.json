@@ -1,5 +1,5 @@
 {
-  "name": "sysengquick-k3s",
+  "name": "proxmox_rancher",
   "dockerComposeFile": "docker-compose.yaml",
   "service": "k3s",
   "workspaceFolder": "/workspace",
